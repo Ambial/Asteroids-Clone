@@ -10,9 +10,10 @@ context.strokeStyle = "#FFFFFF";
 context.fillStyle = "#00FF00";
 context.lineWidth = 2;
 context.moveTo(50, 50);
-context.lineTo(150, 250);
-context.lineTo(250, 170);
-context.lineTo(320, 280);
+//control point 1 (x,y), control point 2 (x,y), end point (x,y)
+context.bezierCurveTo(0, 0, 80, 250, 150, 250);
+context.bezierCurveTo(250, 250, 250, 250, 250, 170);
+context.bezierCurveTo(250, 50, 400, 350, 320, 280);
 
 context.closePath();
 

@@ -1,14 +1,8 @@
-#asteroidz-canvas {
-    border: 2px solid red;
-    background-color: black;
-}
-
-h1 {
-    color: royalblue;
-    border: 2px solid red;
-}
-
 body {
-    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+    font-family: sans-serif;
+}
+
+canvas {
+background-color: black;
 }

@@ -1,20 +1,22 @@
-import { drawGrid, drawPacman } from './drawing.js'
+import { drawGrid, drawPacman, drawShip } from './drawing.js'
 
 let canvas = document.getElementById("asteroidz-canvas");
 const context = canvas.getContext("2d");
 
 drawGrid(context, 15, 45, 'red', 'yellow');
 
-drawPacman(context, { x: 300, y: 200 }, 100, Math.random());
+drawShip(context, 200, 200, 125, { guide: true });
+drawShip(context, 75, 75, 50, {
+    stroke: 'gold', fill:
+        'purple'
+});
+drawShip(context, 325, 325, 50, {
+    angle: 0.8 * Math.PI,
+    guide: true
+});
+drawShip(context, 75, 325, 50, {
+    angle: 0.3 * Math.PI, guide:
+        true
+});
 
-const min_radius = 5;
-const max_radius = 50;
-do {
-    let x = context.canvas.width * Math.random();
-    let y = context.canvas.height * Math.random();
-    let radius = min_radius + (max_radius - min_radius) * Math.
-        random();
-    drawPacman(context, { x: x, y: y }, radius, Math.random());
-}
-while (Math.random() < 0.9);
-
+drawShip(context, 325, 75, 50, { lineWidth: 8, fill: 'blue' })

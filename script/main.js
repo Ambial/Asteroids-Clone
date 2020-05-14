@@ -3,20 +3,19 @@ import { drawGrid, drawPacman, drawShip } from './drawing.js'
 let canvas = document.getElementById("asteroidz-canvas");
 const context = canvas.getContext("2d");
 
-drawGrid(context, 15, 45, 'red', 'yellow');
-
-drawShip(context, 200, 200, 125, { guide: true });
-drawShip(context, 75, 75, 50, {
-    stroke: 'gold', fill:
-        'purple'
-});
-drawShip(context, 325, 325, 50, {
-    angle: 0.8 * Math.PI,
-    guide: true
-});
-drawShip(context, 75, 325, 50, {
-    angle: 0.3 * Math.PI, guide:
-        true
-});
-
-drawShip(context, 325, 75, 50, { lineWidth: 8, fill: 'blue' })
+context.lineWidth = 0.5;
+context.strokeStyle = "white";
+let x = context.canvas.width * 0.9;
+let y = 0;
+let radius = context.canvas.width * 0.1;
+drawGrid(context);
+for (let r = 0; r <= 0.5 * Math.PI; r += 0.05 * Math.PI) {
+    context.save()
+    context.rotate(r);
+    drawShip(context, x, y, radius, { guide: true });
+    context.beginPath();
+    context.moveTo(0, 0);
+    context.lineTo(x, 0);
+    context.stroke();
+    context.restore();
+}
